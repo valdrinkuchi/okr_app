@@ -13,7 +13,7 @@ services:
       - app-network
 
   rails_back:
-    image: okr_app
+    image: valdrinkuchi/okr_app:latest
     depends_on:
       - db
     ports:
