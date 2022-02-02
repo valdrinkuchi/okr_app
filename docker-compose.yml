@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: okr_app_production
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  rails_back:
+    image: okr_app
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
