@@ -16,6 +16,7 @@ class Goal < ApplicationRecord
     status = KeyResultStatus.where(status: 'completed').first
     completed = key_results.where(key_result_status: status).count
     result = completed / key_results.size.to_f * 100
-    number_with_precision(result, precision: 2)
+    reuslt = number_with_precision(result, precision: 2)
+    reuslt.to_s.eql?('NaN') ? '0.00' : reuslt
   end
 end

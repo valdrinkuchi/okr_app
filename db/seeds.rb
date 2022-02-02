@@ -29,6 +29,12 @@ goals = [
     end_date: nil
   },
   {
+    title: 'Boost Employee Satisfaction',
+    user_id: user.id,
+    start_date: 3.weeks.ago,
+    end_date: nil
+  },
+  {
     title: 'Grow Engineering team',
     user_id: user2.id,
     start_date: 4.weeks.ago,

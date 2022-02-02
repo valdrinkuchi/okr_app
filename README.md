@@ -79,3 +79,11 @@ bin/rails test
 ```
 bin/rubocop
 ```
+
+### Examples
+
+In the `seed.rb` there are two users created and assigned `Goals and Key Results`.
+When `Emma Doe` with email `emma.doe@test.com` and password `123456` is signed_in
+through `POST` `http://0.0.0.0:3000/api/v1/sessions` the authorization token is received in the response.
+This token can be used to retrieve `Goals and Key Results` that belong to Emma through `http://0.0.0.0:3000/api/v1/key_results`
+and `http://0.0.0.0:3000/api/v1/goals`.

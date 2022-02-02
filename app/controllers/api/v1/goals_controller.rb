@@ -8,12 +8,13 @@ module Api
 
       # GET /goals
       def index
-        render json: current_user.goals.order('created_at ASC')
+        @goals = current_user.goals.order('created_at ASC')
+        render json: @goals.map { |goal| data_presenter(goal) }
       end
 
       # GET /goals/1
       def show
-        render json: @goal
+        render json: data_presenter(@goal)
       end
 
       # POST /goals
@@ -43,6 +44,15 @@ module Api
       end
 
       private
+
+      def data_presenter(goal)
+        {
+          title: goal.title,
+          start_date: goal.start_date,
+          end_date: goal.end_date,
+          progress: goal.progress
+        }
+      end
 
       def set_goal
         @goal = Goal.find(params[:id])
