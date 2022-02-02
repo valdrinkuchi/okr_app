@@ -22,7 +22,7 @@ jobs:
           bin/rubocop --parallel
       - name: Run tests
         run: |
-          bin/tests
+          bin/rails test
   build-push-backend:
     needs: run-lint
     runs-on: ubuntu-latest
