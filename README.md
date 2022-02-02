@@ -80,6 +80,56 @@ bin/rails test
 bin/rubocop
 ```
 
+### Api-Overview
+
+1. Create and Update User:
+
+   ```ruby
+   POST: 0.0.0.0:3000/api/v1/users
+   PATCH: 0.0.0.0:3000/api/v1/users/:id
+   {
+    "user": {
+      "email": "test@test.com",
+      "password": 123456,
+      "password_confirmation": 123456,
+      "first_name": "Test",
+      "last_name": "User"
+     }
+   }
+   ```
+
+2. Login and Logout User:
+
+   ```ruby
+   POST: 0.0.0.0:3000/api/v1/sessions
+   DELETE: 0.0.0.0:3000/api/v1/sessions/:id
+   {
+    "email": "john.doe@test.com",
+    "password" : 123456
+   }
+   ```
+
+    The Authentication token will be recieved as a response from Login. Authorization token
+    should be used in the headers in order to access goals and key_results controllers.
+
+3. CRUD operation Goals:
+
+   ```ruby
+   GET: 0.0.0.0:3000/api/v1/goals or 0.0.0.0:3000/api/v1/goals/:id
+   POST: 0.0.0.0:3000/api/v1/goals
+   DELETE: 0.0.0.0:3000/api/v1/goals/:id
+   PATCH: 0.0.0.0:3000/api/v1/goals/:id
+   ```
+
+4. CRUD operation Key Results:
+
+   ```ruby
+   GET: 0.0.0.0:3000/api/v1/key_results or 0.0.0.0:3000/api/v1/key_results/:id
+   POST: 0.0.0.0:3000/api/v1/key_results
+   DELETE: 0.0.0.0:3000/api/v1/key_results/:id
+   PATCH: 0.0.0.0:3000/api/v1/key_results/:id
+   ```
+
 ### Examples
 
 In the `seed.rb` there are two users created and assigned `Goals and Key Results`.
