@@ -20,6 +20,9 @@ jobs:
       - name: Run linters
         run: |
           bin/rubocop --parallel
+      - name: Run tests
+        run: |
+          bin/tests
   build-push-backend:
     needs: run-lint
     runs-on: ubuntu-latest
