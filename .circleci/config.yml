@@ -11,11 +11,18 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: okr_app_test
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST: localhost
     docker:
       - image: valdrinkuchi/okr_app:latest
-        auth:
+        auth:.
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
+      - image: circleci/postgres:10.5-alpine
     executor: ruby/default
     steps:
       - checkout
@@ -23,6 +30,14 @@ jobs:
       - run:
           name: Run linters
           command: bin/rubocop --parallel
+      - run:
+          name: Setup Database
+          command: bin/rails db:creat
+      - run:
+          name: Run tests
+          command: bin/rails test
+  test:
+
 
 
 # Invoke jobs via workflows
