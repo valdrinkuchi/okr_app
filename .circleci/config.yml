@@ -20,6 +20,9 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
+      - run:
+          name: Run linters
+          command: bin/rubocop --parallel
 
 
 # Invoke jobs via workflows
