@@ -32,7 +32,7 @@ jobs:
           command: bin/rubocop --parallel
       - run:
           name: Setup Database
-          command: bin/rails db:creat
+          command: bin/rails db:create
       - run:
           name: Run tests
           command: bin/rails test
