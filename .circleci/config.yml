@@ -19,7 +19,7 @@ jobs:
       POSTGRES_HOST: localhost
     docker:
       - image: valdrinkuchi/okr_app:latest
-        auth:.
+        auth:
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
       - image: circleci/postgres:10.5-alpine
