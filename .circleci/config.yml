@@ -17,6 +17,7 @@ jobs:
       POSTGRES_DB: okr_app_test
       POSTGRES_PORT: 5432
       POSTGRES_HOST: localhost
+      RAILS_ENV: test
     docker:
       - image: valdrinkuchi/okr_app:latest
         auth:
